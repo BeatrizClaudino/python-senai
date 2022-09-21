@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEP</title>
+</head>
+<body>
+   
+    <input type="text" id="CEP" placeholder="Digite seu CEP" onkeyup="formatarCep()" maxlength="9">
+    <input type="password" placeholder="senha" id="senha">
+    <a href="javascript:void(0)" onclick="atualizar()">CLIQUE AQUI</a>
+
+    <script>
+        setInterval(() =>{
+            console.log("atualizando...")
+        }, 5000);
+        function atualizar(){
+            var senha = document.getElementById('senha').value
+            if (senha == '123'){
+            logar(senha)
+            }
+           
+        }
+        function logar(novasenha){
+           alert("A nova senha é "+ novasenha)
+        }
+        function verificarNome(){
+            var inputCep = document.getElementById('CEP')
+            var i = ""
+            var sub1 = ""
+            var sub2 = ""
+
+            i = inputCep.value
+            if (inputCep.value.length >= 5){
+                sub1 = i.substring(0,5) + '-'
+                sub2 = i.substring(5, 9)
+                inputCep.value = sub1+sub2
+            }
+            if (inputCep.value.length >9){
+                alert("Número expedido")
+                inputCep.value = i.substring(0, 9)
+            }
+        }
+    </script>
+</body>
+</html>
